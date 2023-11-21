@@ -1,0 +1,22 @@
+{
+  "name": "ts-hw-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VladChornyi/TS-HW-1.git"
+  },
+  "author": "4orniy Vlad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VladChornyi/TS-HW-1/issues"
+  },
+  "homepage": "https://github.com/VladChornyi/TS-HW-1#readme",
+  "dependencies": {
+    "typescript": "^5.2.2"
+  }
+}
