@@ -24,20 +24,18 @@ class Direction {
 
 class Level {
   groups: Group[] = [];
-  _name: string;
-  _program: string | number;
+  _info: [name: string, program: string | number];
 
   constructor(name: string, program: string | number) {
-    this._name = name;
-    this._program = program;
+    this._info = [name, program];
   }
 
   get name(): string {
-    return this._name;
+    return this._info[0];
   }
 
   get program(): string | number {
-    return this._program;
+    return this._info[1];
   }
 
   addGroup(group: Group): void {
