@@ -137,6 +137,7 @@ class Group {
     this._directionName = directionName;
     this._levelName = levelName;
   }
+
   get area(): Area {
     return this._area;
   }
@@ -211,8 +212,8 @@ class Student {
     this._grades[workName] = grade;
   }
 
-  setVisit(present: boolean): void {
-    this._visits.push(present);
+  setVisit(present: boolean): void{
+    this._visits.push(present)
   }
 
   getPerformanceRating(): number {
