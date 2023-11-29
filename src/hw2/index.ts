@@ -25,7 +25,7 @@ enum Statuses {
 
 enum LevelName {
   HTML,
-  CSS, 
+  CSS,
   JS,
   TS,
   React,
@@ -94,7 +94,6 @@ class Area {
 }
 
 class Level {
-
   _groups: Group[] = [];
   _name: string;
   _description: string;
@@ -116,17 +115,18 @@ class Level {
     return this._description;
   }
 
-  addGrooup(group: Group): void{
-    this._groups.push(group)
+  addGrooup(group: Group): void {
+    this._groups.push(group);
   }
 
   removeGroup(levelName: LevelName, status: Statuses): void {
-    this._groups= this._groups.filter((item: Group)=> item._levelName !== levelName && item._status !== status)
+    this._groups = this._groups.filter(
+      (item: Group) => item._levelName !== levelName && item._status !== status
+    );
   }
 }
 
 class Group {
-
   _area: Area;
   _status: Statuses;
   _students: Student[] = [];
@@ -137,49 +137,53 @@ class Group {
     this._directionName = directionName;
     this._levelName = levelName;
   }
-  get area():Area{
-    return this._area
+
+  get area(): Area {
+    return this._area;
   }
 
-  get status(): Statuses{
-    return this._status
+  get status(): Statuses {
+    return this._status;
   }
 
-  get students(): Student[]{
-    return this._students
+  get students(): Student[] {
+    return this._students;
   }
 
-  get directionName(): DirectionName{
-    return this._directionName
+  get directionName(): DirectionName {
+    return this._directionName;
   }
 
-  get levelName(): LevelName{
-    return this._levelName
+  get levelName(): LevelName {
+    return this._levelName;
   }
 
-  set status(status: Statuses){
-    this._status = status
+  set status(status: Statuses) {
+    this._status = status;
   }
 
-  addStudent (student: Student): void{
-    this._students.push(student)
+  addStudent(student: Student): void {
+    this._students.push(student);
   }
 
-  removeStudent(student: Student): void{
-    this._students= this._students.filter((item: Student)=>item._firstName !== student._firstName && item._lastName !== student._lastName)
+  removeStudent(student: Student): void {
+    this._students = this._students.filter(
+      (item: Student) =>
+        item._firstName !== student._firstName &&
+        item._lastName !== student._lastName
+    );
   }
 
-
-  showPerformance() {
+  showPerformance(): Student[] {
     const sortedStudents = this._students.toSorted(
-      (a: Student, b: Student) => b.getPerformanceRating() - a.getPerformanceRating()
+      (a: Student, b: Student) =>
+        b.getPerformanceRating() - a.getPerformanceRating()
     );
     return sortedStudents;
   }
 }
 
 class Student {
-
   _firstName: string;
   _lastName: string;
   _birthYear: number;
