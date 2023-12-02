@@ -28,8 +28,14 @@ type Visit = {
   present: boolean;
 };
 
+type BadgeType =
+  | "single_fast"
+  | "single_standart"
+  | "double_fast"
+  | "double_standart";
+
 class Student {
-  badgeTypeMap = new Map<string, BadgeTypesEnum>([
+  badgeTypeMap = new Map<BadgeType, BadgeTypesEnum>([
     ["single_fast", BadgeTypesEnum.COLOR],
     ["single_standart", BadgeTypesEnum.COLOR],
     ["double_fast", BadgeTypesEnum.MONO],
