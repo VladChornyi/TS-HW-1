@@ -28,11 +28,7 @@ type Visit = {
   present: boolean;
 };
 
-type BadgeType =
-  | "single_fast"
-  | "single_standart"
-  | "double_fast"
-  | "double_standart";
+type BadgeType = `${BadgeSizeType}_${PrintType}`;
 
 class Student {
   badgeTypeMap = new Map<BadgeType, BadgeTypesEnum>([
