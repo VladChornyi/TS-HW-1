@@ -6,7 +6,20 @@ enum ColorEnam {
   Black = "Black",
 }
 
-class Figure {
+type PrintType = () => string;
+
+interface IRectangle {
+  width: number;
+  height: number;
+  print: PrintType;
+}
+
+interface ISquare {
+  sideLength: number;
+  print: PrintType;
+}
+
+abstract class Figure {
   public readonly _name: string;
   public readonly _color: ColorEnam;
 
@@ -23,9 +36,7 @@ class Figure {
     return this._name;
   }
 
-  public calculateArea(): number {
-    return 0;
-  }
+  public abstract calculateArea(): number;
 }
 
 class Circle extends Figure {
@@ -64,7 +75,7 @@ class Triangle extends Figure {
   }
 }
 
-class Square extends Figure {
+class Square extends Figure implements ISquare {
   private _sideLength: number;
 
   constructor(name: string, color: ColorEnam, sideLength: number) {
@@ -80,12 +91,12 @@ class Square extends Figure {
     return Math.pow(this._sideLength, 2);
   }
 
-  public print(): string {
+  public print() {
     return "S = a * a";
   }
 }
 
-class Rectangle extends Figure {
+class Rectangle extends Figure implements IRectangle {
   private _width: number;
   private _height: number;
 
@@ -107,7 +118,7 @@ class Rectangle extends Figure {
     return this._height * this._width;
   }
 
-  public print(): string {
+  public print() {
     return "S = a * b";
   }
 }

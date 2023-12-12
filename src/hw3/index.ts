@@ -18,7 +18,7 @@ enum GradesEnum {
 }
 
 type BadgeSizeType = keyof typeof BadgeSize;
-type PrintType = keyof typeof Print;
+type PrintTypes = keyof typeof Print;
 type Grade = {
   workName: string;
   mark: GradesEnum;
@@ -28,7 +28,7 @@ type Visit = {
   present: boolean;
 };
 
-type BadgeType = `${BadgeSizeType}_${PrintType}`;
+type BadgeType = `${BadgeSizeType}_${PrintTypes}`;
 
 class Student {
   badgeTypeMap = new Map<BadgeType, BadgeTypesEnum>([
