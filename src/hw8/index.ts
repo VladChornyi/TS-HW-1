@@ -33,20 +33,20 @@ class Stack<T> {
 
 // Створіть узагальнений клас Dictionary, який являє собою словник (асоціативний масив) з методами set, get і has. Обмежте ключі тільки валідними типами для об'єкта
 
-class Dictionary<T> {
+class Dictionary<TValue, Tkey extends string | number> {
   private items: {
-    [key: string | number]: T;
+    [key: string | number]: TValue;
   } = {};
 
-  public set<U extends string | number>(key: U, value: T): void {
+  public set(key: Tkey, value: TValue): void {
     this.items[key] = value;
   }
 
-  public get<U extends string | number>(key: U): T | undefined {
+  public get(key: Tkey): TValue | undefined {
     return this.items[key];
   }
 
-  public has<U extends string | number>(key: U): boolean {
+  public has(key: Tkey): boolean {
     return !!this.items[key];
   }
 }
